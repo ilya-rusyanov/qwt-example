@@ -7,6 +7,7 @@
 #include <qwt/qwt_plot_curve.h>
 
 #include <QBoxLayout>
+#include <cmath>
 
 // class definition 'Window'
 class Window : public QWidget
@@ -16,6 +17,7 @@ class Window : public QWidget
 
 public:
 	Window(); // default constructor - called when a Window is declared without arguments
+    ~Window();
 
 	void timerEvent( QTimerEvent * );
 
@@ -34,7 +36,7 @@ private:
 	QVBoxLayout  vLayout;  // vertical layout
 	QHBoxLayout  hLayout;  // horizontal layout
 
-	static const int plotDataSize = 100;
+	static const int plotDataSize = 1000;
 
 	// data arrays for the plot
 	double xData[plotDataSize];
@@ -42,6 +44,8 @@ private:
 
 	double gain;
 	int count;
+    class Calculator;
+    Calculator* calculator;
 };
 
 #endif // WINDOW_H
